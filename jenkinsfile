@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'Docker docker build stage'  
                 sh 'docker build -t devopsclass2022/address-app:${JOB_NAME}-${BUILD_NUMBER} .' 
-                //sh 'docker login -u devopsclass2022 -p  Done24Money@' 
+                //sh 'docker login -u lizholly1 -p  lizdocker1' 
                // sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
         
             }
