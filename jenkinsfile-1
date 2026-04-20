@@ -6,9 +6,11 @@ pipeline {
     }
 
     stages {
+
         stage('checkout') {
             steps {
-                echo 'i am doin a git clone'
+                cleanWs()
+                echo 'cloning repo'
                 git 'https://github.com/lizdevops/DevOpsClassCodes-aug.git'
             }
         }
@@ -28,18 +30,20 @@ pipeline {
         stage('package') {
             steps {
                 sh 'mvn package'
+                sh 'ls target'
             }
         }
 
         stage('docker build') {
             steps {
+                sh 'docker version'
                 sh 'docker build -t lizholly1/addressbook .'
             }
         }
 
         stage('docker login') {
             steps {
-                sh 'docker login -u lizholly1 -p lizdocker1'
+                sh 'echo lizdocker1 | docker login -u lizholly1 --password-stdin'
             }
         }
 
