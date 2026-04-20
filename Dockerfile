@@ -1,4 +1,7 @@
-FROM tomcat:8.5
-ADD target/addressbook.war /usr/local/tomcat/webapps/addressbook.war
-EXPOSE 8080
-CMD  ["catalina.sh", "run"]
+FROM jenkins/jenkins:lts
+
+USER root
+
+RUN apt-get update && apt-get install -y docker.io
+
+USER jenkins
