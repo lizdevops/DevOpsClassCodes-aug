@@ -33,19 +33,19 @@ pipeline {
 
         stage('docker build') {
             steps {
-                echo 'Hello World'
+                sh 'docker build -t lizholly1/addressbook .'
             }
         }
 
         stage('docker login') {
             steps {
-                echo 'Hello World'
+                sh 'docker login -u lizholly1 -p lizdocker1'
             }
         }
 
         stage('docker push') {
             steps {
-                echo 'Hello World'
+                sh 'docker push lizholly1/addressbook'
             }
         }
     }
